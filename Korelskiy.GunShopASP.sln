@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Korelskiy.GunShopASP", "Korelskiy.GunShopASP.csproj", "{A9E0CEC4-03A1-4B97-AAE6-FA93796870B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GunShopASP.Models", "..\GunShopASP.Models\GunShopASP.Models.csproj", "{EF29EE98-9DF6-4F30-BFED-B33C5B53937E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A9E0CEC4-03A1-4B97-AAE6-FA93796870B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9E0CEC4-03A1-4B97-AAE6-FA93796870B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9E0CEC4-03A1-4B97-AAE6-FA93796870B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF29EE98-9DF6-4F30-BFED-B33C5B53937E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF29EE98-9DF6-4F30-BFED-B33C5B53937E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF29EE98-9DF6-4F30-BFED-B33C5B53937E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF29EE98-9DF6-4F30-BFED-B33C5B53937E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
