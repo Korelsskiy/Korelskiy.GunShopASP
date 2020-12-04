@@ -6,4 +6,28 @@
 
 <h1>Products</h1>
 
-<h3>@Model.Products.Count()</h3>
+<div class="row">
+    @foreach (var item in Model.Products)
+    {
+        var photoPath = $"/images/{item.PhotoPath}";
+
+        <div class="col-8 col-sm-8 col-lg-7">
+            <div class="card-deck">
+                <div class="card m-3 cardBoxShadow">
+                    <div class="card-header text-center cardHeaderStyle">
+                        <h3>@item.Title</h3>
+                    </div>
+                    <div class="text-center card-body">
+                        <img class="card-img-top imageThumbnail" src="@photoPath" asp-append-version="true"/>
+                    </div>
+
+                    <div class="card-footer text-center">
+                        <a href="#" class="btn btn-success m-1 buttonShadow">Приобрести ствол</a>
+                        <a href="#" class="btn btn-primary m-1 buttonShadow">Редактировать</a>
+                        <a href="#" class="btn btn-danger m-1 buttonShadow">Удалить из магазина</a>   
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
