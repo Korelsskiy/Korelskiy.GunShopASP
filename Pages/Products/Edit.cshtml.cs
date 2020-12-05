@@ -16,6 +16,7 @@ namespace Korelskiy.GunShopASP.Pages.Products
     {
         private readonly IProductRepository _productRepository;
         private readonly IWebHostEnvironment _webHostEnvironment;
+        [BindProperty]
         public Product Product { get; set; }
         [BindProperty]
         public IFormFile Photo { get; set; }
@@ -28,9 +29,17 @@ namespace Korelskiy.GunShopASP.Pages.Products
             _productRepository = productRepository;
             _webHostEnvironment = webHostEnvironment;
         }
-        public IActionResult OnGet(int id)
+        public IActionResult OnGet(int? id) // при обращении к странице
         {
-            Product = _productRepository.GetProduct(id);
+            if (id.HasValue)
+            {
+                Product = _productRepository.GetProduct(id.Value);
+            }
+            else
+            {
+                Product = new Product();
+            }
+           
 
             if (Product == null)
             {
@@ -40,24 +49,42 @@ namespace Korelskiy.GunShopASP.Pages.Products
             return Page();  
         }
 
-        public IActionResult OnPost(Product product)
+
+        public IActionResult OnPost() // при отправке формы со страницы
         {
-            if (Photo != null)
+            if (ModelState.IsValid)
             {
-                if (product.PhotoPath != null)
+
+                if (Photo != null)
                 {
-                    string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", product.PhotoPath);
-                    System.IO.File.Delete(filePath);
+                    if (Product.PhotoPath != null)
+                    {
+                        string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", Product.PhotoPath);
+                        System.IO.File.Delete(filePath);
+                    }
+
+                    Product.PhotoPath = ProcessUploadedFile();
                 }
 
-                product.PhotoPath = ProcessUploadedFile();
+                if (Product.Id > 0)
+                {
+                    Product = _productRepository.Update(Product);
+
+                    TempData["SuccessMessage"] = $"{Product.Title} успешно обновлен";
+                }
+                else
+                {
+                    Product = _productRepository.Add(Product);
+
+                    TempData["SuccessMessage"] = $"{Product.Title} успешно добавлен";
+                }
+               
+
+                return RedirectToPage("Products");
             }
-
-            Product = _productRepository.Update(product);
-
-            TempData["SuccessMessage"] = $"{Product.Title} успешно обновлен";
-
-            return RedirectToPage("Products");
+            
+            return Page();
+           
         }
 
         public void OnPostUpdateNotificationPreferences(int id)
