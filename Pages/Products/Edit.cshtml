@@ -1,4 +1,4 @@
-﻿@page "{id}"
+﻿@page "{id}/{handler?}"
 @model Korelskiy.GunShopASP.Pages.Products.EditModel
 @{
         ViewData["Title"] = "Edit";
@@ -6,8 +6,30 @@
         string photoPath = $"/images/{Model.Product.PhotoPath ?? "noimage.png"}";
 }
 
+
+<form method="post" asp-page-handler="UpdateNotificationPreferences">
+    <div class="row text-center notifyBlock">
+        <div class="col form-check">
+            <h1>Уведомление</h1>
+            <input asp-for="Notify" class="form-check-input"/>
+            <label asp-for="Notify" class="form-check-label">Отправлять сообщения на почту при изменении профиля</label><br />
+
+            <button type="submit" class="btn btn-primary text-center">Обновить настройки уведомлений</button>
+        
+            @if (!string.IsNullOrWhiteSpace(Model.Message))
+            {
+                <div class="alert-success">
+                    <p class="p-3 mt-2">@Model.Message</p>
+                </div>
+            }
+        </div>
+    </div>
+</form>
+
+<hr />
+
 <!--Создаём форму редактирования-->
-<form method="post" class="mt-3" enctype="multipart/form-data">
+<form method="post" asp-page-handler="OnPost" class="mt-3" enctype="multipart/form-data">
     <!--Создаём скрытое поле для параметра ID-->
     <input type="hidden" asp-for="Product.Id" />
     <input type="hidden" asp-for="Product.PhotoPath" />

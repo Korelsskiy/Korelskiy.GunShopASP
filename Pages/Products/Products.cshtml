@@ -4,6 +4,13 @@
     ViewData["Title"] = "Products";
 }
 
+@if (TempData["SuccessMessage"] != null)
+	{
+		 <div class="alert-success text-center">
+             @TempData["SuccessMessage"]
+         </div>
+	}
+
 <h1>Products</h1>
 
 <div class="row">

@@ -19,6 +19,10 @@ namespace Korelskiy.GunShopASP.Pages.Products
         public Product Product { get; set; }
         [BindProperty]
         public IFormFile Photo { get; set; }
+
+        [BindProperty]
+        public bool Notify { get; set; }
+        public string Message { get; set; }
         public EditModel(IProductRepository productRepository, IWebHostEnvironment webHostEnvironment)
         {
             _productRepository = productRepository;
@@ -51,9 +55,24 @@ namespace Korelskiy.GunShopASP.Pages.Products
 
             Product = _productRepository.Update(product);
 
+            TempData["SuccessMessage"] = $"{Product.Title} успешно обновлен";
+
             return RedirectToPage("Products");
         }
 
+        public void OnPostUpdateNotificationPreferences(int id)
+        {
+            if (Notify)
+            {
+                Message = "Вы включили оповещение на почту";
+            }
+            else
+            {
+                Message = "Вы выключили оповещение по почте";
+            }
+
+            Product = _productRepository.GetProduct(id);
+        }
         private string ProcessUploadedFile()
         {
             string uniqueFileName = null;
