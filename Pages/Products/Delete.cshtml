@@ -1,0 +1,38 @@
+﻿@page "{id}"
+@model Korelskiy.GunShopASP.Pages.Products.DeleteModel
+@{
+    ViewData["Tiltle"] = "Delete";
+    ViewData["ShowButtons"] = false;
+    
+}
+
+<h1 class="text-center">Удаление товара</h1>
+
+<div class="row">
+    <div class="col-12 col-md-6 col-xl-4 offset-sm-0 offset-md-3 offset-xl-4">
+        <partial name="_DisplayProductPartial" model="Model.Product" view-data="ViewData"/>
+    </div>
+</div>
+
+<div class="alert alert-danger">
+    <div class="row">
+        <div class="col-12 col-md-6 col-xl-4 offset-sm-0 offset-md-3 offset-xl-4">
+            <div class="text-center text-secondary">
+                <h4>ID Продукта: <span class="text-primary">@Model.Product.Id</span></h4><hr />
+                <h4>Название: <span class="text-primary">@Model.Product.Title</span></h4><hr />
+                <h4>Класс: <span class="text-primary">@Model.Product.Category</span></h4><hr />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col text-center">
+            <h5>Вы действительно хотите удалить товар - @Model.Product.Title?</h5>
+
+            <form method="post">
+                <button type="submit" class="btn-danger">Да</button>
+                <a class="btn btn-success" asp-page="/Products/Products">Нет</a>
+            </form>
+        </div>
+    </div>
+</div>

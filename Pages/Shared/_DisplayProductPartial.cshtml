@@ -1,0 +1,27 @@
+﻿@model Product
+
+@{
+    var photoPath = $"/images/{Model.PhotoPath}";
+    var showButtons = (bool)ViewData["ShowButtons"];
+}
+
+<div class="card-deck">
+    <div class="card m-3 cardBoxShadow">
+        <div class="card-header text-center cardHeaderStyle">
+            <h3>@Model.Title</h3>
+        </div>
+        <div class="text-center card-body">
+            <img class="card-img-top imageThumbnail" src="@photoPath" asp-append-version="true" />
+        </div>
+
+        @if (showButtons)
+        {
+            <div class="card-footer text-center">
+                <a asp-page="/Products/Details" asp-route-ID="@Model.Id" class="btn btn-success m-1 buttonShadow">Приобрести ствол</a>
+                <a asp-page="/Products/Edit" asp-route-ID="@Model.Id" class="btn btn-primary m-1 buttonShadow">Редактировать</a>
+                <a asp-page="/Products/Delete" asp-route-ID="@Model.Id" class="btn btn-danger m-1 buttonShadow">Удалить из магазина</a>
+            </div>
+        }
+
+    </div>
+</div>
