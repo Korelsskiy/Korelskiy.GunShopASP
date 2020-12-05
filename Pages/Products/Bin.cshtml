@@ -1,0 +1,15 @@
+﻿@page
+@model Korelskiy.GunShopASP.Pages.Products.BinModel
+@{
+    ViewData["Title"] = "Bin";
+}
+
+<h2>Корзина</h2>
+
+<div class="container">
+    @for (int i = 0; i < 10; i++)
+    {
+        <p>Товар№ "@i"</p>
+    }
+</div>
+

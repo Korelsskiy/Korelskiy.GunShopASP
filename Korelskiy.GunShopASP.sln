@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Korelskiy.GunShopASP", "Korelskiy.GunShopASP.csproj", "{A9E0CEC4-03A1-4B97-AAE6-FA93796870B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Korelskiy.GunShopASP", "Korelskiy.GunShopASP.csproj", "{A9E0CEC4-03A1-4B97-AAE6-FA93796870B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GunShopASP.Models", "..\GunShopASP.Models\GunShopASP.Models.csproj", "{EF29EE98-9DF6-4F30-BFED-B33C5B53937E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GunShopASP.Models", "..\GunShopASP.Models\GunShopASP.Models.csproj", "{EF29EE98-9DF6-4F30-BFED-B33C5B53937E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Korelskiy.GunShopASP.Services", "..\Korelskiy.GunShopASP.Services\Korelskiy.GunShopASP.Services.csproj", "{9B1B61DA-975B-4206-BF73-0BEEC37DD87C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Korelskiy.GunShopASP.Services", "..\Korelskiy.GunShopASP.Services\Korelskiy.GunShopASP.Services.csproj", "{9B1B61DA-975B-4206-BF73-0BEEC37DD87C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

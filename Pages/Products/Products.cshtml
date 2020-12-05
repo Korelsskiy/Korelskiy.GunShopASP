@@ -7,27 +7,49 @@
 <h1>Products</h1>
 
 <div class="row">
+    <div class="col-lg-7">
+        <div class="card-deck">
+            <div class="card m-1 cardBoxShadow">
+                <p></p><p class="text-center">Фильтрация</p>
+                <p><input type="checkbox" unchecked>СССР</p>
+                <p><input type="checkbox" unchecked>СССР</p>
+                <p><input type="checkbox" unchecked>СССР</p>
+                <p><input type="checkbox" unchecked>Винтовки</p>
+                <p><input type="checkbox" unchecked>Пистолет-пулеметы</p>
+                <p><input type="checkbox" unchecked>Пулеметы</p>
+                <p><input type="radio" name="sort" unchecked>По цене(сначала дорогие)</p>
+                <p><input type="radio" name="sort" unchecked>По цене(сначала дешевые)</p>
+                <p><input type="radio" name="sort" unchecked>По алфавиту</p>
+                <p class="align-self-lg-center"><button>Применить</button></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
     @foreach (var item in Model.Products)
     {
         var photoPath = $"/images/{item.PhotoPath}";
 
-        <div class="col-8 col-sm-8 col-lg-7">
+        <div class="col-lg-7">
             <div class="card-deck">
                 <div class="card m-3 cardBoxShadow">
                     <div class="card-header text-center cardHeaderStyle">
                         <h3>@item.Title</h3>
                     </div>
                     <div class="text-center card-body">
-                        <img class="card-img-top imageThumbnail" src="@photoPath" asp-append-version="true"/>
+                        <img class="card-img-top imageThumbnail" src="@photoPath" asp-append-version="true" />
                     </div>
 
                     <div class="card-footer text-center">
                         <a href="#" class="btn btn-success m-1 buttonShadow">Приобрести ствол</a>
                         <a href="#" class="btn btn-primary m-1 buttonShadow">Редактировать</a>
-                        <a href="#" class="btn btn-danger m-1 buttonShadow">Удалить из магазина</a>   
+                        <a href="#" class="btn btn-danger m-1 buttonShadow">Удалить из магазина</a>
                     </div>
                 </div>
             </div>
         </div>
+
+
     }
 </div>
+
