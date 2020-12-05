@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Korelskiy.GunShopASP.Services;
-using GunShopASP.Models;
+using Korelskiy.ModelsForGunShop;
 
 namespace Korelskiy.GunShopASP.Pages.Products
 {
@@ -18,11 +14,18 @@ namespace Korelskiy.GunShopASP.Pages.Products
             _productRepository = productRepository;
         }
 
-        public Product Product { get; private set; }
+        public Product Product { get; set; }
 
-        public void OnGet(int id)
+        public IActionResult OnGet(int id)
         {
             Product = _productRepository.GetProduct(id);
+
+            if (Product == null)
+            {
+                return RedirectToPage("/NotFound");
+            }
+
+            return Page();
         }
     }
 }

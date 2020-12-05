@@ -10,8 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GunShopASP.Models\GunShopASP.Models.csproj" />
     <ProjectReference Include="..\Korelskiy.GunShopASP.Services\Korelskiy.GunShopASP.Services.csproj" />
+    <ProjectReference Include="..\Korelskiy.ModelsForGunShop\Korelskiy.ModelsForGunShop.csproj" />
   </ItemGroup>
 
 </Project>

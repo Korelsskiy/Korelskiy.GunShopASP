@@ -1,8 +1,8 @@
-﻿@page
+﻿@page "{id}"
 @model Korelskiy.GunShopASP.Pages.Products.DeatailsModel
 @{
     ViewData["Title"] = "Product Details";
-    var photoPath = $"/images/{Model.Product.PhotoPath}";
+    var photoPath = $"/images/{Model.Product.PhotoPath ?? "noimage.png"}";
 }
 
 <div class="row justify-content-center m-3">
@@ -30,7 +30,7 @@
                     <div class="col">
                         <div class="card-footer text-center" style="background-color: rgba(0,0,0,0.25)">
                             <a asp-page="Products" class="btn btn-success buttonShadow">Назад</a>
-                            <a href="#" class="btn btn-primary buttonShadow">Редактировать</a>
+                            <a asp-page="Edit" class="btn btn-primary buttonShadow">Редактировать</a>
                             <a href="#" class="btn btn-danger buttonShadow">Удалить</a>
                         </div>
                     </div>

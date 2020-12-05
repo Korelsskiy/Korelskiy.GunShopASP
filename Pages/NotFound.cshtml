@@ -1,0 +1,18 @@
+﻿@page
+@model Korelskiy.GunShopASP.Pages.NotFoundModel
+@{
+    ViewData["Title"] = "Not Found";
+}
+
+<div class="row">
+    <div class="col text-center">
+           <img src="~/images/NotFound.png" alt="Страница не найдена"/>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col text-center">
+        <h1>Данный ресурс не найден</h1>
+        <a asp-page="/Products/Products" class="btn btn-primary">Кликните здесь, чтобы вернуться к ассортименту</a>
+    </div>
+</div>

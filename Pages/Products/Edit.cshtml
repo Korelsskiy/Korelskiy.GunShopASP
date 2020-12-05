@@ -1,0 +1,116 @@
+﻿@page "{id}"
+@model Korelskiy.GunShopASP.Pages.Products.EditModel
+@{
+        ViewData["Title"] = "Edit";
+
+        string photoPath = $"/images/{Model.Product.PhotoPath ?? "noimage.png"}";
+}
+
+<!--Создаём форму редактирования-->
+<form method="post" class="mt-3" enctype="multipart/form-data">
+    <!--Создаём скрытое поле для параметра ID-->
+    <input type="hidden" asp-for="Product.Id" />
+    <input type="hidden" asp-for="Product.PhotoPath" />
+
+    <!--Добавляем поля редактирования-->
+    <div class="row justify-content-center m-3">
+        <div class="col col-lg-10">
+            <div class="card cardBoxShadow">
+                <div class="card-header cardHeaderStyle text-center">
+                    <!--Добавляем поле редактирования имени-->
+                    <div class="form-group row">
+                        <label asp-for="Product.Title" class="col col-lg-4 col-form-label text-right">Название:</label>
+                        <div class="col col-lg-6">
+                            <input asp-for="Product.Title" class="form-control" placeholder="@Model.Product.Title" />
+                            <!--Добавляем сообщение валидации формы-->
+                            <span asp-validation-for="Product.Title" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-body cardBodyStyle text-center">
+                    <div class="row">
+                        <div class="col col-lg-9">
+                            <h4 class="cardTextLeftFloating">Employee ID: @Model.Product.Id</h4><hr />
+
+                            <!--Добавляем поле редактирования e-mail-->
+                            <div class="form-group row">
+                                <label asp-for="Product.Producer" class="col col-lg-4 col-form-label text-right">Производитель:</label>
+                                <div class="col-12 col-lg-6">
+                                    <input asp-for="Product.Producer" class="form-control mr-2" placeholder="@Model.Product.Producer" />
+                                    <!--Добавляем сообщение валидации формы-->
+                                    <span asp-validation-for="Product.Producer" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <hr />
+                            <!--Добавляем поле редактирования департамента-->
+                            <div class="form-group row">
+                                <label asp-for="Product.Category" class="col col-lg-4 col-form-label text-right">Класс вооружния:</label>
+                                <div class="col-12 col-lg-6">
+                                    <!--Создаём выпадающий список с департаментами-->
+                                    <!--Необходимо подключить класс локально или глобально-->
+                                    <select asp-for="Product.Category" class="custom-select mr-2" asp-items="Html.GetEnumSelectList<Cat>()">
+                                        <!--Добавляем начальный элемент выпадающего списка-->
+                                        <option value="">Выберите:</option>
+                                    </select>
+                                    <span asp-validation-for="Product.Category" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="form-group row">
+                                <label asp-for="Product.Country" class="col col-lg-4 col-form-label text-right">Страна-изготовитель:</label>
+                                <div class="col-12 col-lg-6">
+                                    <input asp-for="Product.Country" class="form-control mr-2" placeholder="@Model.Product.Country" />
+                                    <!--Добавляем сообщение валидации формы-->
+                                    <span asp-validation-for="Product.Country" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="Product.Price" class="col col-lg-4 col-form-label text-right">Цена:</label>
+                                <div class="col-12 col-lg-6">
+                                    <input asp-for="Product.Price" class="form-control mr-2" placeholder="@Model.Product.Price" />
+                                    <!--Добавляем сообщение валидации формы-->
+                                    <span asp-validation-for="Product.Price" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col col-3">
+                            <div>
+                                <img class="card-img-top detailsPhoto border border-dark" src="@photoPath" asp-append-version="true" />
+
+                                <div class="custom-file">
+                                    <input asp-for="Photo" class="custom-file-input form-control" />
+                                    <label class="custom-file-label text-left">Выбрать</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card-footer text-center" style="background-color: rgba(0, 0, 0, 0.25);">
+                                <button type="submit" class="btn btn-success buttonShadow">Подтвердить</button>
+                                <a asp-page="index" class="btn btn-danger buttonShadow">Назад</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('.custom-file-input').on("change",
+                function () {
+                    var fileName = $(this).val().split("\\").pop();
+                    $(this).next('.custom-file-label').html(fileName);
+                });
+        });
+    </script>
+    }
+
+</form>

@@ -42,7 +42,7 @@
 
                     <div class="card-footer text-center">
                         <a asp-page="/Products/Details" asp-route-ID="@item.Id" class="btn btn-success m-1 buttonShadow">Приобрести ствол</a>
-                        <a href="#" class="btn btn-primary m-1 buttonShadow">Редактировать</a>
+                        <a asp-page="/Products/Edit" asp-route-ID="@item.Id" class="btn btn-primary m-1 buttonShadow">Редактировать</a>
                         <a href="#" class="btn btn-danger m-1 buttonShadow">Удалить из магазина</a>
                     </div>
                 </div>
