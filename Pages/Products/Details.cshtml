@@ -1,0 +1,41 @@
+﻿@page
+@model Korelskiy.GunShopASP.Pages.Products.DeatailsModel
+@{
+    ViewData["Title"] = "Product Details";
+    var photoPath = $"/images/{Model.Product.PhotoPath}";
+}
+
+<div class="row justify-content-center m-3">
+    <div class="col col-lg-10">
+        <div class="card cardBoxShadow">
+            <div class="card-header cardHeaderStyle text-center">
+                <h1>@Model.Product.Title</h1>
+            </div>
+            <div  class="card-body cardBoxShadow text-center">
+                <div class="row">
+                    <div class="col col-lg-7">
+                        <h4 class="cardTextLeftFloating">ID Продукта: @Model.Product.Id</h4><hr />
+                        <h4 class="cardTextLeftFloating">Производитель : @Model.Product.Producer</h4><hr />
+                        <h4 class="cardTextLeftFloating">Тип вооружения: @Model.Product.Category</h4><hr />
+                        <h4 class="cardTextLeftFloating">Страна-изготовитель: @Model.Product.Country</h4><hr />
+                        <h4 class="cardTextLeftFloating">ЦЕНА:<span class="text-danger font-weight-bold"> @Model.Product.Price руб.</span></h4><hr />
+                    </div>
+                    <div class="col col-lg-5">
+                        <div style="border-right: 1px solid rgb(182, 255, 0)">
+                            <img class="card-img-top detailsPhoto border border-primary" style="background-color: #dle7ff" src="@photoPath" asp-append-version="true" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card-footer text-center" style="background-color: rgba(0,0,0,0.25)">
+                            <a asp-page="Products" class="btn btn-success buttonShadow">Назад</a>
+                            <a href="#" class="btn btn-primary buttonShadow">Редактировать</a>
+                            <a href="#" class="btn btn-danger buttonShadow">Удалить</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
