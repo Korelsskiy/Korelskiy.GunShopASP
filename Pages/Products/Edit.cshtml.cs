@@ -1,7 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Korelskiy.ModelsForGunShop;
 using Korelskiy.GunShopASP.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -60,7 +57,13 @@ namespace Korelskiy.GunShopASP.Pages.Products
                     if (Product.PhotoPath != null)
                     {
                         string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", Product.PhotoPath);
-                        System.IO.File.Delete(filePath);
+
+                        if (Product.PhotoPath != "noimage.png")
+                        {
+                            System.IO.File.Delete(filePath);
+                        }
+
+                        
                     }
 
                     Product.PhotoPath = ProcessUploadedFile();

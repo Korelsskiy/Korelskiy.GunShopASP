@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Korelskiy.ModelsForGunShop;
 using Korelskiy.GunShopASP.Services;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.EntityFrameworkCore;
 
 namespace Korelskiy.GunShopASP
 {
@@ -26,8 +27,14 @@ namespace Korelskiy.GunShopASP
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IProductRepository, MokProductRepository>();
+            services.AddDbContextPool<AppDbContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("GunShopDbConnection"));
+            });
 
+
+            //services.AddSingleton<IProductRepository, MokProductRepository>();
+            services.AddScoped<IProductRepository, SqlProductRepository>();
             services.AddRazorPages();
 
             services.Configure<RouteOptions>(options =>

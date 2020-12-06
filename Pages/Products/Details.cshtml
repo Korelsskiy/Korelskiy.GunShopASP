@@ -6,6 +6,13 @@
 }
 
 <div class="row justify-content-center m-3">
+    <div class="col col-lg-8">
+        @*@await Component.InvokeAsync("HeadCount", new { category = Model.Product.Category})*@
+        <vc:head-count category="@Model.Product.Category"></vc:head-count>
+    </div>
+</div>
+
+<div class="row justify-content-center m-3">
     <div class="col col-lg-10">
         <div class="card cardBoxShadow">
             <div class="card-header cardHeaderStyle text-center">

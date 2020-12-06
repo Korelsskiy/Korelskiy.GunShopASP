@@ -12,14 +12,17 @@ namespace Korelskiy.GunShopASP.Pages.Products
     public class ProductsModel : PageModel
     {
         private readonly IProductRepository _db;
+
         public IEnumerable<Product> Products { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string SearchTerm { get; set; }
         public ProductsModel(IProductRepository db)
         {
             _db = db;
         }
         public void OnGet()
         {
-            Products = _db.GetAllProducts();
+            Products = _db.Search(SearchTerm);
         }
     }
 }
