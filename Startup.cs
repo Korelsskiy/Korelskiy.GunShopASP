@@ -33,7 +33,8 @@ namespace Korelskiy.GunShopASP
             });
 
 
-            //services.AddSingleton<IProductRepository, MokProductRepository>();
+            //services.AddSingleton<IUserRepository, SqlUserRepository>();
+            services.AddScoped<IUserRepository, SqlUserRepository>();
             services.AddScoped<IProductRepository, SqlProductRepository>();
             services.AddRazorPages();
 

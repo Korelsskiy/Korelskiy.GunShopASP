@@ -4,12 +4,54 @@
     ViewData["Title"] = "Enter";
 }
 
-<h2>Вход в аккаунт</h2>
+<h2>Регистрация</h2>
 
-<div class="container">
-    <p>Логин</p>
-    <input type="text" size="40" />
-    <p>Пароль</p>
-    <input type="text" size="40" />
-</div>
+
+<form method="post" class="mt-3" enctype="multipart/form-data">
+    <input type="hidden" asp-for="User.Id" />
+    <div class="row justify-content-center m-3">
+        <div class="col col-lg-10">
+            <div class="cardBoxShadow">
+                <div class="card-header cardHeaderStyle text-center">
+                    <h2>Регистрация</h2>
+                </div>
+                <div class="card-body cardBoxShadow text-center">
+                    <div class="form-group row">
+                        <label asp-for="User.Email" class="col col-lg-4 col-form-label text-right">E-mail:</label>
+                        <div class="col-12 col-lg-6">
+                            <input asp-for="User.Email" class="form-control mr-2" placeholder="User.Email" />
+                            <!--Добавляем сообщение валидации формы-->
+                            <span asp-validation-for="User.Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="User.Password" class="col col-lg-4 col-form-label text-right">Пароль:</label>
+                        <div class="col-12 col-lg-6">
+                            <input asp-for="User.Password" class="form-control mr-2" placeholder="@Model.User.Password" />
+                            <!--Добавляем сообщение валидации формы-->
+                            <span asp-validation-for="User.Password" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="User.Name" class="col col-lg-4 col-form-label text-right">Имя:</label>
+                        <div class="col-12 col-lg-6">
+                            <input asp-for="User.Name" class="form-control mr-2" placeholder="@Model.User.Name" />
+                            <!--Добавляем сообщение валидации формы-->
+                            <span asp-validation-for="User.Name" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card-footer text-center" style="background-color: rgba(0, 0, 0, 0.25);">
+                                <button type="submit" class="btn btn-success buttonShadow">Зарегистритроваться</button>
+                                <a asp-page="index" class="btn btn-danger buttonShadow">Назад</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
 

@@ -4,6 +4,13 @@
     ViewData["Title"] = "Главная";
 }
 
+@if (TempData["SuccessRegistration"] != null)
+{
+    <div class="alert-success text-center">
+        @TempData["SuccessRegistration"]
+    </div>
+}
+
 <div class="row text-center">
     <div class="col">
         <h1>Здарова!</h1>
@@ -13,6 +20,6 @@
 
 <div class="row text-center">
     <div class="col">
-        <img class="vietnamPhoto" src="~/images/Vietnam.png"/>
+        <img class="vietnamPhoto" src="~/images/Vietnam.png" />
     </div>
 </div>
