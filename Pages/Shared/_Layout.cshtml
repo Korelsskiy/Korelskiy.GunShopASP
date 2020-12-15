@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -19,6 +19,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <p class="text-center" style="font-size:10px">Пользователь: @SiteStatus.GetUserName()</p>
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-page="/Index">Главная</a>
@@ -40,6 +41,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-page="/Products/Edit">Добавить товар</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-page="/Accounts/Autorisation">Авторизация</a>
                         </li>
                     </ul>
                 </div>

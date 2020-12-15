@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Korelskiy.GunShopASP.Pages.Accounts
+namespace Korelskiy.GunShopASP.Pages.Shared
 {
-    public class RegistrationModel : PageModel
+    public class _AutentificationModel : PageModel
     {
         public void OnGet()
         {
